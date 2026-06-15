@@ -32,3 +32,11 @@ class Personnage:
         cible.recevoir_degats(degat)
         return self.nom+'('+self._categorie+') lance un sort sur '+cible.nom+'('+str(ancien_pv)+') -- PV '+cible.nom+ ' : '+ str(cible._pv)
 
+    def prendre_artefact(self, perdant:'Personnage')->str:
+        if perdant.artefacts:
+            self.artefacts.append(perdant.artefacts.pop(0))
+        else:
+            print(perdant.nom+'n\'avait plus d\'artefact')
+
+    def __str__(self):
+        return self.nom
