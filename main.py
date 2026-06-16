@@ -6,9 +6,6 @@ from personnage import Personnage, Gobelin, Chevalier, Archer, Mage, Sage
 def duel(p1:Personnage, p2:Personnage):
     historique = []
     print('\n--- Début du combat : '+p1.nom+' vs '+p2.nom+ ' ---')
-    if not p1.est_vivant() and not p2.est_vivant():
-        historique.append('Aucun vainqueur '+p1.nom+' et '+p2.nom+' sont morts')
-        return 'Aucun vainqueur', historique
     while p1.est_vivant() and p2.est_vivant():
         historique.append(p1.attaquer(p2))
         if not p2.est_vivant():
@@ -20,15 +17,18 @@ def duel(p1:Personnage, p2:Personnage):
         historique.append(p1.prendre_artefact(p2))
         historique.append('Vainqueur :'+p1.nom)
         return p1.nom, historique
-    else:
+    elif not p1.est_vivant() and  p2.est_vivant():
         historique.append(p2.prendre_artefact(p1))
         historique.append('Vainqueur :' + p2.nom)
         return p2.nom, historique
+    else:
+        historique.append('Aucun vainqueur ' + p1.nom + ' et ' + p2.nom + ' sont morts')
+        return 'Aucun vainqueur', historique
 
 def sauvegarde_resultat(texte:str):
     date_heure = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open("combats.txt", "a", encoding="utf-8") as f:
-        f.write(date_heure + texte+'\n')
+        f.write(f"{date_heure} {texte}\n")
 
 
 
@@ -51,17 +51,13 @@ def main():
 
     combats = ((guillaume, charline),(merlin, gandalf),(charline, robin),(merlin,guillaume),(gandalf, robin))
 
-    for combat in combats:
-        p1 = combat[0]
-        p2 = combat[1]
+    for p1,p2 in combats:
         vainqueur, histo= duel(p1, p2)
         print('\n'.join(histo))
-        histo_ = ''
+        histo_ = histo[0]
         if len(histo)>=2:
             histo_ = histo[-2]
-        else:
-            histo_ = histo[0]
-        texte = f" - {p1.nom} vs {p2.nom} -> {histo_}"
+        texte = f"- {p1.nom} vs {p2.nom} -> {histo_}"
         sauvegarde_resultat(texte)
 
 if __name__ == "__main__":

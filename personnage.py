@@ -43,7 +43,8 @@ class Personnage:
             return perdant.nom + ' n\'avait plus d\'artefact'
 
     def __str__(self)->str:
-        return f"{self.nom}({self._categorie}) PV {self._pv} Artefacts ({", ".join(self.artefacts)})"
+        artefacts_str = ", ".join(self.artefacts) if self.artefacts else "aucun"
+        return f"{self.nom}({self._categorie}) PV {self._pv} Artefacts ({artefacts_str})"
 
 class Gobelin(Personnage):
     def __init__(self, nom: str, pouvoirs: list[Pouvoir] | None = None,
@@ -76,6 +77,9 @@ class Mage(Personnage):
     def attaquer(self, cible: 'Personnage') -> str:
         degat = self.puissance_magique + random.randint(-5, 5)
         ancien_pv = cible._pv
+        if self.pouvoirs:
+            current_pouvoir = random.choice(self.pouvoirs)
+            degat += current_pouvoir.degats
         cible.recevoir_degats(degat)
         return self.nom + '(' + self._categorie + ') lance un sort sur ' + cible.nom + '(' + str(
             ancien_pv) + ') -- PV ' + cible.nom + ' : ' + str(cible._pv)
@@ -95,6 +99,9 @@ class Sage(Personnage):
         degat = int(self.pouvoir)
         self.pouvoir *= 1.04
         ancien_pv = cible._pv
+        if self.pouvoirs:
+            current_pouvoir = random.choice(self.pouvoirs)
+            degat += current_pouvoir.degats
         cible.recevoir_degats(degat)
         return self.nom + '(' + self._categorie + ') lance un sort sur ' + cible.nom + '(' + str(
             ancien_pv) + ') -- PV ' + cible.nom + ' : ' + str(cible._pv)

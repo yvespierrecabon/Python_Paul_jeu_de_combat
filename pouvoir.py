@@ -3,7 +3,7 @@ class Pouvoir:
         self.nom = nom
         self.degats = degats
 
-    def __str__(self):
+    def __str__(self)->str:
         return 'Pouvoir : '+self.nom +' ('+str(self.degats)+')'
 
 
