@@ -61,7 +61,7 @@ def main():
             histo_ = histo[-2]
         else:
             histo_ = histo[0]
-        texte = f"- {p1.nom} vs {p2.nom} -> {histo_}"
+        texte = f" - {p1.nom} vs {p2.nom} -> {histo_}"
         sauvegarde_resultat(texte)
 
 if __name__ == "__main__":
