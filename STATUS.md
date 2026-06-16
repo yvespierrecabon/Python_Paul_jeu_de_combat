@@ -1,6 +1,6 @@
 # 📊 STATUS.md - Point de Situation Actuel
 
-> **Fichier généré automatiquement - Dernière mise à jour : 2026-06-16 19:26:05**
+> **Fichier généré automatiquement - Dernière mise à jour : 2026-06-16 19:28:02**
 > *Ce fichier contient l'état actuel du projet pour un suivi rapide*
 
 ---
@@ -10,8 +10,8 @@
 | Indicateur | Valeur | Statut |
 |------------|--------|--------|
 | **Dépôt** | `yvespierrecabon/Python_Paul_jeu_de_combat` | ✅ Actif |
-| **Branch** | `detached` | ✅ À jour |
-| **Dernier commit** | `45632f9` | ✅ Valide |
+| **Branch** | `main` | ✅ À jour |
+| **Dernier commit** | `48588b7` | ✅ Valide |
 | **Fichiers Python** | 4 | ✅ Fonctionnels |
 | **Tests** | Aucun | ⚠️ À implémenter |
 | **Documentation** | Complète | ✅ OK |
@@ -88,7 +88,7 @@
 
 ### Actions récentes
 
-1. **2026-06-16 19:26:05** : Mise à jour automatique via update_context.py
+1. **2026-06-16 19:28:02** : Mise à jour automatique via update_context.py
 2. **2026-06-16 19:14** : Exploration du dépôt et création des fichiers de contexte
 3. **2026-06-16 11:49** : Exécution de `main.py` (derniers combats enregistrés)
 4. **2025-11-29** : Création initiale du projet
@@ -195,7 +195,7 @@ tail -f combats.txt
 ## 📝 **NOTES**
 
 - Ce fichier est généré automatiquement par `update_context.py`
-- La date de mise à jour est : **2026-06-16 19:26:05**
+- La date de mise à jour est : **2026-06-16 19:28:02**
 - Pour forcer une mise à jour manuelle : `python update_context.py --force`
 - Version du script : 1.0
 

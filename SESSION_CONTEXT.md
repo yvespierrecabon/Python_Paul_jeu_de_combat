@@ -1,7 +1,7 @@
 # 🎮 Session Context - Python_Paul_jeu_de_combat
 
 > **Fichier de référence pour redémarrer une session sans ré-explications**
-> *Dernière mise à jour automatique : 2026-06-16 19:26:05*
+> *Dernière mise à jour automatique : 2026-06-16 19:28:02*
 > *Version : 2.0*
 
 ---
@@ -12,8 +12,8 @@
 - **Repository GitHub** : `yvespierrecabon/Python_Paul_jeu_de_combat`
 - **URL** : `https://github.com/yvespierrecabon/Python_Paul_jeu_de_combat`
 - **Chemin local** : `/workspace/yvespierrecabon__Python_Paul_jeu_de_combat`
-- **Branch actuelle** : `detached`
-- **Dernier commit** : `45632f9 - Ajout du fichier CONTEXT.md pour documenter le projet et faciliter les futures sessions`
+- **Branch actuelle** : `main`
+- **Dernier commit** : `48588b7 - Ajout du système d'automatisation des fichiers de contexte`
 
 ### 🎯 **Objectif du projet**
 Créer un jeu de combat en Python avec :
@@ -369,5 +369,5 @@ black *.py
 ---
 
 *Ce fichier est généré automatiquement par `update_context.py`.*
-*Dernière mise à jour : 2026-06-16 19:26:05*
+*Dernière mise à jour : 2026-06-16 19:28:02*
 *Ne pas modifier manuellement sauf pour les corrections urgentes.*
