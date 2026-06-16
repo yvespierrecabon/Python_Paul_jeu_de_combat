@@ -15,13 +15,13 @@ class Personnage:
         self.pouvoirs = pouvoirs or []
         self.artefacts = artefacts
 
-    def est_vivant(self):
+    def est_vivant(self)->bool:
         return self._pv > 0
 
-    def recevoir_degats(self, dmg: int):
+    def recevoir_degats(self, dmg: int)->None:
         self._pv = max(0, self._pv - dmg)
 
-    def soigner(self, pts: int):
+    def soigner(self, pts: int)->None:
         self._pv = min(self._pv_max, self._pv + pts)
 
     def attaquer(self, cible: 'Personnage') -> str:
@@ -42,8 +42,8 @@ class Personnage:
         else:
             print(perdant.nom + ' n\'avait plus d\'artefact')
 
-    def __str__(self):
-        return self.nom + '(' + self._categorie + ') PV ' + str(self._pv) + 'Artefacts (' + str(self.artefacts) + ')'
+    def __str__(self)->str:
+        return self.nom + '(' + self._categorie + ') PV ' + str(self._pv) + ' Artefacts (' + str(self.artefacts) + ')'
 
 
 class Gobelin(Personnage):
@@ -58,7 +58,7 @@ class Chevalier(Personnage):
         super().__init__(nom, 'Chevalier', 120, pouvoirs, artefacts)
         self._resistance = 0.10
 
-    def recevoir_degats(self, dmg: int):
+    def recevoir_degats(self, dmg: int)->None:
         self._pv = max(0, self._pv - int(0.9 * dmg))
 
 
@@ -89,7 +89,7 @@ class Sage(Personnage):
         self.pouvoir = pouvoir
         self.potion = pv_gagne
 
-    def boire_potion(self):
+    def boire_potion(self)->None:
         self._pv += self.potion
 
     def attaquer(self, cible: 'Personnage') -> str:
