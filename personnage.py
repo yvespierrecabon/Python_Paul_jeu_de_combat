@@ -32,19 +32,18 @@ class Personnage:
             degat = current_pouvoir.degats
         cible.recevoir_degats(degat)
         return self.nom + '(' + self._categorie + ') lance un sort sur ' + cible.nom + '(' + str(
-            ancien_pv) + ') -- PV ' + cible.nom + ' : ' + str(cible._pv)
+            ancien_pv) + ') --> PV après l\'attaque : ' + cible.nom + ' : ' + str(cible._pv)
 
-    def prendre_artefact(self, perdant: 'Personnage') -> None:
+    def prendre_artefact(self, perdant: 'Personnage') -> str:
         if perdant.artefacts:
             artefact_pris = perdant.artefacts.pop(0)
             self.artefacts.append(artefact_pris)
-            print(self.nom + ' a pris ' + str(artefact_pris) + ' à ' + perdant.nom)
+            return self.nom + ' a pris ' + str(artefact_pris) + ' à ' + perdant.nom
         else:
-            print(perdant.nom + ' n\'avait plus d\'artefact')
+            return perdant.nom + ' n\'avait plus d\'artefact'
 
     def __str__(self)->str:
-        return self.nom + '(' + self._categorie + ') PV ' + str(self._pv) + ' Artefacts (' + str(self.artefacts) + ')'
-
+        return f"{self.nom}({self._categorie}) PV {self._pv} Artefacts ({", ".join(self.artefacts)})"
 
 class Gobelin(Personnage):
     def __init__(self, nom: str, pouvoirs: list[Pouvoir] | None = None,
