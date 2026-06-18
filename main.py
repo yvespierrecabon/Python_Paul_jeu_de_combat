@@ -5,6 +5,9 @@ from personnage import Personnage, Gobelin, Chevalier, Archer, Mage, Sage
 
 def duel(p1:Personnage, p2:Personnage):
     historique = []
+    if not  p1.est_vivant() or not p2.est_vivant():
+        historique.append('Pas de duel ' + p1.nom + ' ou ' + p2.nom + ' est déjà mort')
+        return 'Pas de duel', historique
     print('\n--- Début du combat : '+p1.nom+' vs '+p2.nom+ ' ---')
     while p1.est_vivant() and p2.est_vivant():
         historique.append(p1.attaquer(p2))
@@ -13,6 +16,7 @@ def duel(p1:Personnage, p2:Personnage):
         historique.append(p2.attaquer(p1))
         if not p1.est_vivant():
             break
+
     if not p2.est_vivant() and p1.est_vivant():
         historique.append(p1.prendre_artefact(p2))
         historique.append('Vainqueur :'+p1.nom)
