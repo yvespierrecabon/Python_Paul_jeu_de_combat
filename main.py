@@ -3,12 +3,13 @@ from datetime import datetime
 from pouvoir import Pouvoir
 from personnage import Personnage, Gobelin, Chevalier, Archer, Mage, Sage
 
-def duel(p1:Personnage, p2:Personnage):
+def duel(p1:Personnage, p2:Personnage)->(Personnage|None, list):
     historique = []
+    print('\n--- Début du combat : '+p1.nom+' vs '+p2.nom+ ' ---')
     if not  p1.est_vivant() or not p2.est_vivant():
         historique.append('Pas de duel ' + p1.nom + ' ou ' + p2.nom + ' est déjà mort')
-        return 'Pas de duel', historique
-    print('\n--- Début du combat : '+p1.nom+' vs '+p2.nom+ ' ---')
+        return None, historique
+
     while p1.est_vivant() and p2.est_vivant():
         historique.append(p1.attaquer(p2))
         if not p2.est_vivant():
@@ -19,19 +20,19 @@ def duel(p1:Personnage, p2:Personnage):
 
     if not p2.est_vivant() and p1.est_vivant():
         historique.append(p1.prendre_artefact(p2))
-        historique.append('Vainqueur :'+p1.nom)
-        return p1.nom, historique
+        print('Vainqueur :',p1.nom)
+        return p1, historique
     elif not p1.est_vivant() and  p2.est_vivant():
         historique.append(p2.prendre_artefact(p1))
-        historique.append('Vainqueur :' + p2.nom)
-        return p2.nom, historique
+        print('Vainqueur :',p2.nom)
+        return p2, historique
     else:
         historique.append('Aucun vainqueur ' + p1.nom + ' et ' + p2.nom + ' sont morts')
-        return 'Aucun vainqueur', historique
+        return None, historique
 
 def sauvegarde_resultat(texte:str):
     date_heure = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open("combats.txt", "a", encoding="utf-8") as f:
+    with open("resultats.txt", "a", encoding="utf-8") as f:
         f.write(f"{date_heure} {texte}\n")
 
 
@@ -58,10 +59,7 @@ def main():
     for p1,p2 in combats:
         vainqueur, histo= duel(p1, p2)
         print('\n'.join(histo))
-        histo_ = histo[0]
-        if len(histo)>=2:
-            histo_ = histo[-2]
-        texte = f"- {p1.nom} vs {p2.nom} -> {histo_}"
+        texte = f"- {p1.nom} vs {p2.nom} -> {histo[-1]}"
         sauvegarde_resultat(texte)
 
 if __name__ == "__main__":

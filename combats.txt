@@ -1,5 +1,0 @@
-2026-06-18 15:14:52 - Guillaume vs Charline -> Charline a pris gourde à Guillaume
-2026-06-18 15:14:52 - Merlin vs Gandalf -> Merlin a pris Artefact initial à Gandalf
-2026-06-18 15:14:52 - Charline vs Robin -> Charline a pris Artefact initial à Robin
-2026-06-18 15:14:52 - Merlin vs Guillaume -> Merlin a pris arc à Guillaume
-2026-06-18 15:14:52 - Gandalf vs Robin -> Pas de duel Gandalf et Robin sont déjà morts

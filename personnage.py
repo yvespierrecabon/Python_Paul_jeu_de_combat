@@ -93,7 +93,7 @@ class Sage(Personnage):
         self.potion = pv_gagne
 
     def boire_potion(self)->None:
-        self._pv += self.potion
+        self._pv = min(self._pv + self.potion, self._pv_max)
 
     def attaquer(self, cible: 'Personnage') -> str:
         degat = int(self.pouvoir)
