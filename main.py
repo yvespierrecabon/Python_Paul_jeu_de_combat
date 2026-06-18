@@ -1,7 +1,4 @@
 from datetime import datetime
-from time import sleep
-
-
 
 from pouvoir import Pouvoir
 from personnage import Personnage, Gobelin, Chevalier, Archer, Mage, Sage
@@ -62,7 +59,6 @@ def main():
             histo_ = histo[-2]
         texte = f"- {p1.nom} vs {p2.nom} -> {histo_}"
         sauvegarde_resultat(texte)
-        sleep(1)
 
 if __name__ == "__main__":
     main()
