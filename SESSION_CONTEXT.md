@@ -1,7 +1,7 @@
 # 🎮 Session Context - Python_Paul_jeu_de_combat
 
 > **Fichier de référence pour redémarrer une session sans ré-explications**
-> *Dernière mise à jour automatique : 2026-06-18 11:59:21*
+> *Dernière mise à jour automatique : 2026-06-16 19:28:02*
 > *Version : 2.0*
 
 ---
@@ -11,9 +11,10 @@
 ### 📍 **Localisation du projet**
 - **Repository GitHub** : `yvespierrecabon/Python_Paul_jeu_de_combat`
 - **URL** : `https://github.com/yvespierrecabon/Python_Paul_jeu_de_combat`
-- **Chemin local** : `/media/stockage/Documents/workspaces/PythonProjects/Paul_jeu_de_combat`
+- **Chemin local** : `/workspace/yvespierrecabon__Python_Paul_jeu_de_combat`
 - **Branch actuelle** : `main`
-- **Dernier commit** : `a5c95d2 - corrections main`
+- **Dernier commit** : `48588b7 - Ajout du système d'automatisation des fichiers de contexte`
+>>>>>>> 0e7ab27507284e8384757085de351ddf650b8c5f
 
 ### 🎯 **Objectif du projet**
 Créer un jeu de combat en Python avec :
@@ -57,7 +58,8 @@ Python_Paul_jeu_de_combat/
 
 ### 🔄 **Évolutions récentes**
 
-- **2026-06-18** : Mise à jour automatique via update_context.py
+
+- **2026-06-16** : Mise à jour automatique via update_context.py
 - **2026-06-16** : Ajout du fichier `CONTEXT.md` pour documentation technique
 - **2025-11-29** : Création complète de la base de code
   - Classes Personnage et dérivées
@@ -202,7 +204,7 @@ cd Python_Paul_jeu_de_combat
 ### 2️⃣ **Mettre à jour le dépôt (si déjà cloné)**
 
 ```bash
-cd /media/stockage/Documents/workspaces/PythonProjects/Paul_jeu_de_combat
+cd /workspace/yvespierrecabon__Python_Paul_jeu_de_combat
 git pull origin main
 ```
 
@@ -361,7 +363,7 @@ black *.py
 
 | Date | Auteur | Modification |
 |------|--------|--------------|
-| 2026-06-18 | Vibe Code | Mise à jour automatique via update_context.py |
+| 2026-06-16 | Vibe Code | Mise à jour automatique via update_context.py |
 | 2026-06-16 | Vibe Code | Création de SESSION_CONTEXT.md et système d'automatisation |
 | 2026-06-16 | yvespierrecabon | Ajout du fichier CONTEXT.md |
 | 2025-11-29 | yvespierrecabon | Création initiale du projet |
@@ -369,5 +371,5 @@ black *.py
 ---
 
 *Ce fichier est généré automatiquement par `update_context.py`.*
-*Dernière mise à jour : 2026-06-18 11:59:21*
+*Dernière mise à jour : 2026-06-16 19:28:02*
 *Ne pas modifier manuellement sauf pour les corrections urgentes.*
