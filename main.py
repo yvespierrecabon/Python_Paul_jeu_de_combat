@@ -35,6 +35,15 @@ def sauvegarde_resultat(texte:str):
     with open("resultats.txt", "a", encoding="utf-8") as f:
         f.write(f"{date_heure} {texte}\n")
 
+def affiche_personnages_vivants(personnages:list[Personnage])->None:
+    print('\nPersonnages vivants :')
+    for personnage in personnages:
+        if personnage.est_vivant():
+            print(personnage)
+    print('\nPersonnages morts :')
+    for personnage in personnages:
+        if not personnage.est_vivant():
+            print(personnage)
 
 
 def main():
@@ -42,25 +51,30 @@ def main():
     vent = Pouvoir('Vent', 20)
     ombre = Pouvoir('Ombre', 10)
     sagesse = Pouvoir('Sagesse', 10)
-
+    print(sagesse)
+    personnages = []
     guillaume = Gobelin('Guillaume', [ombre, vent],['gourde','arc'])
     charline = Chevalier('Charline', [flamme, vent], ['glaive', 'casque'])
-    merlin = Mage('Merlin', puissance_magique=25)
-    gandalf = Sage('Gandalf', pouvoir=15.0, pv_gagne=30)
-    robin = Archer('Robin', pouvoirs=[vent, ombre])
-    print(guillaume)
-    print(charline)
-    print(merlin)
-    print(gandalf)
-    print(robin)
+    merlin = Mage('Merlin', 25,[sagesse],['elixir'])
+    gandalf = Sage('Gandalf', 15.0, 30,[sagesse],['baton de lumière'])
+    robin = Archer('Robin', [vent, ombre],['arc','fleches'])
+    personnages.append(guillaume)
+    personnages.append(charline)
+    personnages.append(merlin)
+    personnages.append(gandalf)
+    personnages.append(robin)
+    for personnage in personnages:
+        print(personnage)
 
-    combats = ((guillaume, charline),(merlin, gandalf),(charline, robin),(merlin,guillaume),(gandalf, robin))
+
+    combats = ((guillaume, charline),(merlin, gandalf),(charline, robin),(merlin,charline),(gandalf, robin))
 
     for p1,p2 in combats:
         vainqueur, histo= duel(p1, p2)
         print('\n'.join(histo))
         texte = f"- {p1.nom} vs {p2.nom} -> {histo[-1]}"
         sauvegarde_resultat(texte)
+        affiche_personnages_vivants(personnages)
 
 if __name__ == "__main__":
     main()
