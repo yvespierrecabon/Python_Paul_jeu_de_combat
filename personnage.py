@@ -59,7 +59,8 @@ class Chevalier(Personnage):
         self._resistance = 0.10
 
     def recevoir_degats(self, dmg: int)->None:
-        self._pv = max(0, self._pv - int(0.9 * dmg))
+        dmg_reduit = int(dmg * (1 - self._resistance))
+        super().recevoir_degats(dmg_reduit)
 
 
 class Archer(Personnage):
